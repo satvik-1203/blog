@@ -55,7 +55,7 @@ Before we get into all this I also want to conclude that Next JS is react as wel
 Instead of making one huge bundle, they make multiple separate bundles which belongs to specific route. So when a user requests for a page, they only get the JavaScript required for that page, By doing this we can overcome the time to takes to load content on the first load.
 
 **For Example:** If a user is in route `about`, the server will only send the JavaScript module for that page. But in the react projects, when you load the project the server sends the entire bundle and it starts rendering in front of the client. This is why react projects take forever to load. 
-So what people do is( For big application ), they do something called `code splitting` so that server doesn't send the entire module which could take minutes to load. Next js does this outta the box.
+So what people do is( For big application ), they do something called `code splitting` so that client does get the entire module which could take minutes to load. Next js does this outta the box.
 
 ## Lets talk about the 3 different types of rendering. 
 
@@ -73,7 +73,17 @@ In this type of generation, the server sends the entire JavaScript to the client
 ### Static Site Generation? 
 
 Like the name sounds this is used more with static sites which there isn't a need for building the site again and again. 
- 
+So basically what nextJS does in static site generation is, on build time the static page gets generated into html and js. So when a user requests for the page, 
+ans its static, the server will blinding just send the html and js since the page is static so it doesn't need to remake the entire page. This can save a lot of speed and time
+since the server doesn't need to remake the site and stuff.
+
+NextJS has a extra feature to this. You can set a time interval to it, so even thought you page is static, it remakes everything in the interval. 
+
+### Server Side Generation? 
+
+Server side generation is similar to client side generation but instead the page gets generated on the server and then gets sent to the client.
+This was how web was done before react. This can be slow sometimes so its better to use Client side generation but it also depends on the situation.
+In this methods. for each page request, the server makes the entire page again and then sends it to the client. This can get really costly at times. 
 
 
 
