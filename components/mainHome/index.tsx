@@ -1,6 +1,8 @@
 import React from "react";
 import { topicName } from "@/root/interfaces";
+
 import BlogPost from "./BlogPost";
+import Link from "next/link";
 
 interface Props {
   topicNames: topicName[];
@@ -17,7 +19,11 @@ const index: React.FC<Props> = ({ topicNames }) => {
       </header>
       <section className="grid mt-[5rem]  gap-y-8 gap-x-8  grid-cols-smCardCol sm:grid-cols-cardCol">
         {topicNames.map(topicName => (
-          <BlogPost key={topicName.id} topicName={topicName} />
+          <Link key={topicName.id} href={topicName.url || "/"}>
+            <a>
+              <BlogPost topicName={topicName} />
+            </a>
+          </Link>
         ))}
       </section>
     </main>

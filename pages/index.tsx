@@ -1,11 +1,13 @@
 import Head from "next/head";
 import { InferGetStaticPropsType } from "next";
 import fs from "fs";
+import blogs from "../blogs/blogs.json";
 import MainHome from "../components/mainHome/index";
 import { topicName } from "interfaces";
 
 export default function Home({
   topicNames,
+  blogs,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <div>
@@ -14,7 +16,7 @@ export default function Home({
         <meta name="description" content="Starter page for the blog" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <MainHome topicNames={topicNames} />
+      <MainHome topicNames={blogs} />
     </div>
   );
 }
@@ -32,6 +34,6 @@ export const getStaticProps = async () => {
   }));
 
   return {
-    props: { topicNames },
+    props: { topicNames, blogs },
   };
 };

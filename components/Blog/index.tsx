@@ -16,18 +16,29 @@ const index: React.FC<Props> = ({ data, content }) => {
         div > * {
           font-size: 1.1rem;
         }
-        h1 {
-          font-size: 2rem;
+        ul {
+          margin: 1rem 0;
+        }
+        li {
+          list-style: disc;
+          list-style-position: inside;
+        }
+        h3 {
+          font-size: 1.5rem;
           font-weight: bold;
-          margin: 3rem 0;
+        }
+        h2 {
+          font-size: 2.2rem;
+          font-weight: bold;
+          margin: 2.5rem 0;
         }
         p {
           margin: 1rem 0;
         }
         pre {
-          width: fit-content;
-          background: black;
-          padding: 0.5rem 0.6rem;
+          overflow-x: scroll;
+          background: #1d1d1d;
+          padding: 0.6rem 0.6rem;
           border-radius: 0.5rem;
         }
         code {
@@ -35,7 +46,7 @@ const index: React.FC<Props> = ({ data, content }) => {
           border-radius: 0.2rem;
         }
         pre code {
-          background: black;
+          background: transparent;
           color: white;
         }
       `}</style>

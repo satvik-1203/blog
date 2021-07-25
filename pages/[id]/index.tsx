@@ -5,12 +5,21 @@ import { ParsedUrlQuery } from "querystring";
 import matter from "gray-matter";
 import marked from "marked";
 import Blog from "../../components/Blog";
+import Head from "next/head";
 
 const index = ({
   content,
   data,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  return <Blog content={content} data={data} />;
+  return (
+    <>
+      <Head>
+        <title>{data.title} Blog</title>
+        <meta name="description" content={data.description} />
+      </Head>
+      <Blog content={content} data={data} />
+    </>
+  );
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
