@@ -69,6 +69,15 @@ So what people do is( For big application ), they do something called `code spli
 
 In this type of generation, the server sends the entire JavaScript to the client and in front of the client the page starts to render. 
 
+**Life Cycle:**  
+
+```
+ > User Request for the page. 
+       > The CSS, And the JavaScript is sent. 
+              > Takes time to download the JavaScript.
+                     > Once the JavaScript is downloaded by the browser, the html gets rendered and page is intractable.
+
+```
 
 ### Static Site Generation? 
 
@@ -79,11 +88,33 @@ since the server doesn't need to remake the site and stuff.
 
 NextJS has a extra feature to this. You can set a time interval to it, so even thought you page is static, it remakes everything in the interval. 
 
+> Mostly used for blogs and other static pages that are not interactive. 
+
+**Life Cycle:**  
+
+```
+> On the build time the page is built
+       > When site gets requested the page is sent. The server sends the required JS (Which is very less in this case), CSS and HTML. 
+              > Page is generated right after requested, you might need to wait a tiny about before it gets interactive but most static sites aren't interactive except for some hyperlinks, so JS isn't intensively used here.
+                     > So in this case the page is sent on request and is already built on build time, this means the page doesn't need to be built the content in server or client. 
+
+```
+
 ### Server Side Generation? 
 
 Server side generation is similar to client side generation but instead the page gets generated on the server and then gets sent to the client.
 This was how web was done before react. This can be slow sometimes so its better to use Client side generation but it also depends on the situation.
 In this methods. for each page request, the server makes the entire page again and then sends it to the client. This can get really costly at times. 
+
+**Life Cycle:**  
+
+```
+> User Request for the page. 
+       > The content is built on the server on request.
+              > Sends the CSS, JavaScript, and HTML. 
+                     > So on request, you will immediately see the content on the page since HTML is sent, however it takes time before the page is interactive since the browser javascript needs to be downloaded.
+```
+
 
 
 
