@@ -9,6 +9,7 @@ module.exports = {
       fontFamily: {
         serif: ["'Lobster Two'", ...defaultTheme.fontFamily.serif],
         sans: ["'Nunito'", ...defaultTheme.fontFamily.sans],
+        mono: ["'DM Mono'", ...defaultTheme.fontFamily.mono],
       },
       gridTemplateColumns: {
         body: "5rem 95vw",

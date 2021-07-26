@@ -9,7 +9,7 @@ const index: React.FC<Props> = ({ data, content }) => {
   return (
     <>
       <div
-        className={` mt-20 focus:outline-none  py-10 px-5 sm:px-10 sm:w-3/4  `}
+        className={` mt-16 focus:outline-none  py-10 px-5 sm:px-10 sm:w-3/4  `}
         dangerouslySetInnerHTML={{ __html: content }}
       ></div>
       <style jsx global>{`
@@ -28,13 +28,20 @@ const index: React.FC<Props> = ({ data, content }) => {
           font-weight: bold;
           margin: 1rem 0;
         }
+        h1 {
+          font-size: 3rem;
+          font-weight: bold;
+          margin: 2.5rem 0;
+          border-bottom: 1px solid #5a5a5a;
+        }
         h2 {
           font-size: 2.2rem;
           font-weight: bold;
-          margin: 2.5rem 0;
+          margin: 1.5rem 0;
         }
         p {
           margin: 1rem 0;
+          color: #272727;
         }
         pre {
           overflow-x: scroll;
@@ -53,13 +60,14 @@ const index: React.FC<Props> = ({ data, content }) => {
         }
         blockquote {
           border-radius: 0.4rem;
-
-          padding-left: 0.6rem;
+          overflow: hidden;
+          padding-left: 0.4rem;
           background-color: white;
         }
         blockquote p {
           padding: 0.3rem 0.4rem;
           background-color: rgba(167, 167, 167, 0.6);
+          margin: 0;
         }
       `}</style>
     </>

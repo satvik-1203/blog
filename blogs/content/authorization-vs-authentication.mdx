@@ -1,0 +1,61 @@
+---
+title: Authorization Vs Authentication
+description: Difference of Authentication and Authorization
+language: 
+---
+
+# Authorization Vs Authentication
+
+## What is Authentication? 
+
+Authentication is like a proof that the person accessing the route is you. In real terms you can also say 
+its like a driver's licence or passport. 
+
+## What is Authorization?
+
+Authorization is like showing you have right access and permissions to the requested route. <br/>
+**Example:** Only admin people have access to admin panel.
+
+
+**Types of authentication:** 
+
+- Basic Auth.
+- OAuth2.0 (Open Authentication)
+- API Keys
+
+### What is Basic Auth? 
+
+This is the most common and simple type of authentication where the username and password are kept in the HTTP request headers itself.
+This kinda method is the least preferred due to the lack of security and does not use any sessionID, cookies and stuff.
+
+**Examples:**
+
+> Usually the password isn't your actual password rather a personal token.
+<p></P>
+
+*Don't include `<` and `>`*
+
+```
+In Web Browsers:
+
+url: https//:<username>:<password>@<domain> should do the trick.
+```
+
+<p></p>
+
+```
+In Terminal:
+
+$ curl -u <username>:<password> <domain>
+```
+
+<p></p>
+
+```
+In Postman: 
+
+- Go under Authorization tab under the url.
+- Then select Type : Basic Auth, then you should see a new section popped up which shows username and password
+- Enter the credentials and start making requests.
+
+```

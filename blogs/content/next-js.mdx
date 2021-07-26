@@ -1,22 +1,22 @@
 ---
 title: Next JS
-description: simplified version of nextjs documentation
+description: simplified version of nextJS documentation
 language: framework on React JS, Next js
 ---
 
 <h2> This is where I start. </h2>
 
 To install next js, its pretty straight forward, just type 
-`yarn create next-app` or `npx create-next-app` and for the typescript support just add the --typescript flag at the end and that should do it:). 
+`yarn create next-app` or `npx create-next-app` and for the typescript support just add the `--typescript` flag at the end and that should do it:). 
 
-Once you successfully install nextjs on ur folder, you should see a complete different folder structure from the common create-react-app (CRA). 
+Once you successfully install nextJS on ur folder, you should see a complete different folder structure from the common create-react-app (CRA). 
 
 
 
 
 Now let's look at what each folder does.  
 
-**.next** is where nextjs keeps all the built content so its nothing for us to play with :). 
+**.next** is where nextJS keeps all the built content so its nothing for us to play with :). 
 
 **node_modules** where we store our node modules, does what the names says.
 
@@ -50,7 +50,7 @@ We will also get into dynamic routing as we go more in to the blog.
 
 Before we get into all this I also want to conclude that Next JS is react as well but with a new set of configured webpack settings so developers don't cry about the `Bundle size` in the production build and the time it takes to load on the page reload.
 
-### How does nextjs handle bundle size in production? 
+### How does nextJS handle bundle size in production? 
 
 Instead of making one huge bundle, they make multiple separate bundles which belongs to specific route. So when a user requests for a page, they only get the JavaScript required for that page, By doing this we can overcome the time to takes to load content on the first load.
 
@@ -63,7 +63,7 @@ So what people do is( For big application ), they do something called `code spli
 - Static Site Generation
 - Server Side Rendering 
 
-### Client Side Generation? 
+### Client Side Rendering? 
 
 `If you are familiar with React, you should know it uses client side rendering.`
 
@@ -75,7 +75,7 @@ In this type of generation, the server sends the entire JavaScript to the client
  > User Request for the page. 
        > The CSS, And the JavaScript is sent. 
               > Takes time to download the JavaScript.
-                     > Once the JavaScript is downloaded by the browser, the html gets rendered and page is intractable.
+                     > Once the JavaScript is downloaded by the browser, the HTML gets rendered and page is intractable.
 
 ```
 
@@ -88,22 +88,21 @@ since the server doesn't need to remake the site and stuff.
 
 NextJS has a extra feature to this. You can set a time interval to it, so even thought you page is static, it remakes everything in the interval. 
 
-> Mostly used for blogs and other static pages that are not interactive. 
+> Mostly used for blogs and other static pages that are not very interactive and doesn't need real time content load. 
 
 **Life Cycle:**  
 
 ```
 > On the build time the page is built
-       > When site gets requested the page is sent. The server sends the required JS (Which is very less in this case), CSS and HTML. 
+       > When site gets requested the page is sent. The server sends the required JS (Which is very less in this case), CSS and HTML(That is built on build time). 
               > Page is generated right after requested, you might need to wait a tiny about before it gets interactive but most static sites aren't interactive except for some hyperlinks, so JS isn't intensively used here.
-                     > So in this case the page is sent on request and is already built on build time, this means the page doesn't need to be built the content in server or client. 
 
 ```
 
-### Server Side Generation? 
+### Server Side Rendering? 
 
 Server side generation is similar to client side generation but instead the page gets generated on the server and then gets sent to the client.
-This was how web was done before react. This can be slow sometimes so its better to use Client side generation but it also depends on the situation.
+This was how web was done before client side rendering. This can be slow sometimes so its better to use Client side generation but it also depends on the situation.
 In this methods. for each page request, the server makes the entire page again and then sends it to the client. This can get really costly at times. 
 
 **Life Cycle:**  
@@ -112,8 +111,24 @@ In this methods. for each page request, the server makes the entire page again a
 > User Request for the page. 
        > The content is built on the server on request.
               > Sends the CSS, JavaScript, and HTML. 
-                     > So on request, you will immediately see the content on the page since HTML is sent, however it takes time before the page is interactive since the browser javascript needs to be downloaded.
+                     > So on request, you will immediately see the content on the page since HTML is sent, however, it takes time before the page is interactive since the browser javascript needs to be downloaded.
 ```
+
+### What is Single Page Application (SPA)?
+
+React can be a perfect example for single page application. 
+In the common CRA, you should see a public folder with an index.html file. And by now you should be aware that all the content gets loaded into the `#root` div of index.html.
+So depending on what page you are in, different content gets loaded. 
+
+This can be really bad for SEO since the meta tags would be the same for each page. 
+
+But in nextJS, every page has already bundled accordingly. And you have the power to set what meta tags you want to show in what page which can be really good for the SEO.
+
+And another amazing feature of nextJS is that its hybrid. Your page can consist of SSR and CSR or SSG and CSR.
+
+Im hoping by now you are aware of the different types of rendering.
+
+## So lets look at how nextJS does static site generation.
 
 
 
