@@ -53,6 +53,7 @@ const index: React.FC<Props> = ({ data, content }) => {
         code {
           background: rgb(255, 255, 255, 0.7);
           border-radius: 0.2rem;
+          padding: 0.1rem 0.2rem;
         }
         pre code {
           background: transparent;
