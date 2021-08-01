@@ -39,6 +39,7 @@ const index: React.FC<Props> = ({ data, content }) => {
           font-size: 2.2rem;
           font-weight: bold;
           margin: 1.5rem 0;
+          border-bottom: 1px solid #5a5a5a;
         }
         p {
           line-height: 1.8rem;
@@ -71,6 +72,11 @@ const index: React.FC<Props> = ({ data, content }) => {
           padding: 0.3rem 0.4rem;
           background-color: rgba(167, 167, 167, 0.6);
           margin: 0;
+        }
+        a {
+          text-decoration: underline;
+          font-weight: bold;
+          color: #4949ff;
         }
       `}</style>
     </>

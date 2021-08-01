@@ -4,7 +4,11 @@ description: simplified version of nextJS documentation
 language: framework on React JS, Next js
 ---
 
-<h2> This is where I start. </h2>
+<h1> Next-JS Blog Post</h1>
+
+> All credits to the nextJS documentation, code snippets are taken directly from the documentation.
+[Documentation](https://nextjs.org/docs/getting-started)
+
 
 To install next js, its pretty straight forward, just type 
 `yarn create next-app` or `npx create-next-app` and for the typescript support just add the `--typescript` flag at the end and that should do it:). 
@@ -128,7 +132,7 @@ And another amazing feature of nextJS is that its hybrid. Your page can consist 
 
 Im hoping by now you are aware of the different types of rendering.
 
-## So lets look at how nextJS does static site generation.
+### So lets look at how nextJS does static site generation.
 
 The main two functions you should learn for static generation in nextJS are, `getStaticProps` and `getStaticPaths`.
 
@@ -207,4 +211,73 @@ export async function getStaticPaths() {
 - true: if page not found and fallback is true, revalidate will trigger and remakes the page. If new data isn't found will throw 404 error. and while this is happening you can also set a loading ui and stuff
 - blocking: similar to true but just that you won't have a ui and stuff since its getting blocked till the page is loaded.
 
-And in nextJS folders structure and stuff changes in build time so its recommended to use `process.cwd()` rather than `__dirname`.
+And in nextJS folders structure and stuff changes in build time so its recommended to use `process.cwd()` rather than `__dirname` while using path module.
+
+**Thats prolly it for static generation, now lets look at Server Side Rendering**
+
+### What is Server Side Rendering?
+
+> If using getServerSideProps, the page will pre-render on each request and then will be sent to the client.
+
+<p/>
+
+```
+function Page({ data }) {
+  // Render data...
+}
+
+// This gets called on every request
+export async function getServerSideProps() {
+  // Fetch data from external API
+  const res = await fetch(`https://.../data`)
+  const data = await res.json()
+
+
+  if (!data) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    }
+    // Or do whatever you want to do.
+  }
+
+  // Pass data to the page via props
+  return { props: { data } }
+}
+
+export default Page
+```
+
+* You should only use this when you want to pre-render the page on each request, cuz this type of rendering will be much slower than 
+static rendering since its not cached in the CDN. 
+* If you don't think you app requires pre-rendering and is dynamic, you should consider doing the rendering on client side. 
+
+### Client Side Rendering on nextJS. 
+
+Since nextJS is a hybrid rendering framework. you can use Static Site Generation mixed with Client Side Rendering. 
+So in nextJS, we can load a static page while the browser is downloading the JS module, and then generate the dynamic content on the client side. 
+<br/>
+**Doesn't sound amazing?** 
+
+For this support nextJS has an amazing built in hook for data fetching on the client side.
+
+```
+import useSWR from 'swr'
+
+const fetcher = (url) => fetch(url).then((res) => res.json())
+
+function Profile() {
+  const { data, error } = useSWR('/api/user', fetcher)
+
+  if (error) return <div>failed to load</div>
+  if (!data) return <div>loading...</div> // While the data isn't received yet you can show some loading component.
+  return <div>hello {data.name}!</div> // While the data is loaded.
+}
+```
+It's is amazing to know nextJS has a built in hook for this instead of building it ourselves.
+
+## Lets Look At Layouts In Next-JS.
+
+
