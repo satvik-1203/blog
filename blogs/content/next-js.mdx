@@ -130,6 +130,81 @@ Im hoping by now you are aware of the different types of rendering.
 
 ## So lets look at how nextJS does static site generation.
 
+The main two functions you should learn for static generation in nextJS are, `getStaticProps` and `getStaticPaths`.
+
+` Make sure to export the function and they can only be used inside a file of pages folder.`
 
 
+### What is getStaticProps? 
 
+
+```
+// pages -> blog.tsx
+// posts will be populated at build time by getStaticProps()
+
+function Blog({ posts }) {
+  return (
+    <ul>
+      {posts.map((post) => (
+        <li>{post.title}</li>
+      ))}
+    </ul>
+  )
+}
+
+// This function gets called at build time on server-side.
+
+export async function getStaticProps() {
+
+  // Call an external API endpoint to get posts.
+  // You can use any data fetching library.
+
+  const res = await fetch('https://.../posts')
+  const posts = await res.json()
+
+  // By returning { props: { posts } }, the Blog component
+  // will receive posts as a prop at build time
+
+  return {
+    props: {
+      posts,
+    },
+  }
+}
+
+export default Blog
+```
+
+In this method, we are telling nextJS to use that data and build the website by the data of posts coming from `getStaticProps()`.
+So if there is any change in the data, the page needs to rebuild so that the data fetching can take place again.
+
+getStaticProps also has an argument which is generally used as context.
+content has some useful properties: <br/>
+`defaultLocale`: default language. <br/>
+`locales`: array of languages. <br/>
+`params`: the params of the url. <br/>
+
+### What is getStaticPaths?
+
+In this function we can predefine that following paths we want to predefine on build-time itself, lets look at an example.
+
+```
+export async function getStaticPaths() {
+  return {
+    paths: [
+    { params: { id: '1' } }, // You can also generate this object dynamically using map.
+    { params: { id: '2' } }
+  ],
+    fallback: true or false or blocking // if site not found you can use a fallback.
+    revalidate: n secs. // Optional. but it remakes the site once at most per n seconds.
+  };
+}
+
+```
+
+**fallback:**
+- false: if page not found, it automatically returns `404 page not found`.
+- true: if page not found and fallback is true, revalidate will trigger and remakes the page. If new data isn't found will throw 404 error. and while this is happening you can also set a loading ui and stuff
+- blocking: similar to true but just that you won't have a ui and stuff since its getting blocked till the page is loaded.
+
+And in nextJS folders structure and stuff changes in build time so its recommended to use `process.cwd()` rather than `__dirname`.

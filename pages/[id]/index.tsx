@@ -41,6 +41,7 @@ export const getStaticProps: GetStaticProps = async context => {
   // const id = context.params;
   // const props = id;
   // return { props };
+
   const { id } = context.params as IParams; // Property 'slug' does not exist on type 'ParsedUrlQuery | undefined'
   const fileContent = fs.readFileSync(`blogs/content/${id}.mdx`, "utf-8");
   let { content, data } = matter(fileContent);

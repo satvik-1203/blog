@@ -21,7 +21,8 @@ const index: React.FC<Props> = ({ data, content }) => {
         }
         li {
           list-style: disc;
-          list-style-position: inside;
+          list-style-position: outside;
+          margin-left: 1rem;
         }
         h3 {
           font-size: 1.5rem;
@@ -40,6 +41,7 @@ const index: React.FC<Props> = ({ data, content }) => {
           margin: 1.5rem 0;
         }
         p {
+          line-height: 1.8rem;
           margin: 1rem 0;
           color: #272727;
         }
@@ -52,7 +54,7 @@ const index: React.FC<Props> = ({ data, content }) => {
         }
         code {
           background: rgb(255, 255, 255, 0.7);
-          border-radius: 0.2rem;
+          border-radius: 0.4rem;
           padding: 0.1rem 0.2rem;
         }
         pre code {
