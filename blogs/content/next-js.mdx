@@ -89,21 +89,22 @@ In this type of generation, the server sends the entire JavaScript to the client
 
 ### Static Site Generation? 
 
-Like the name sounds this is used more with static sites which there isn't a need for building the site again and again. 
-So basically what nextJS does in static site generation is, on build time the static page gets generated into html and js. So when a user requests for the page, 
-ans its static, the server will blinding just send the html and js since the page is static so it doesn't need to remake the entire page. This can save a lot of speed and time
+Like the name sounds this is used more with static sites where there isn't a need for building the site again and again. 
+So basically what nextJS does in static site generation is, on build time the static page gets generated into html and js module. So when a user requests for the page, 
+ans its static, the server will blinding just send the html and js since the page is static so it doesn't need to remake the entire page by the help of JavaScript. This can save a lot of speed and time
 since the server doesn't need to remake the site and stuff.
 
 NextJS has a extra feature to this. You can set a time interval to it, so even thought you page is static, it remakes everything in the interval. 
 
 > Mostly used for blogs and other static pages that are not very interactive and doesn't need real time content load. 
+Can also mix Static and client side rendering.
 
 **Life Cycle:**  
 
 ```
 > On the build time the page is built
-       > When site gets requested the page is sent. The server sends the required JS (Which is very less in this case), CSS and HTML(That is built on build time). 
-              > Page is generated right after requested, you might need to wait a tiny about before it gets interactive but most static sites aren't interactive except for some hyperlinks, so JS isn't intensively used here.
+       > When site gets requested the page is sent. The server sends the required JS, CSS and HTML(That is built on build time). 
+              > Page is generated right after requested, you might need to wait a tiny about before it gets interactive.
 
 ```
 
