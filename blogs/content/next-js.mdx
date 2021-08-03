@@ -6,6 +6,10 @@ language: framework on React JS, Next js
 
 <h1> Next-JS Blog Post</h1>
 
+> Giving basic understanding about different types of renders in nextJS and page layouts.
+
+<p/>
+
 > All credits to the nextJS documentation, code snippets are taken directly from the documentation.
 [Documentation](https://nextjs.org/docs/getting-started)
 
@@ -280,4 +284,76 @@ It's is amazing to know nextJS has a built in hook for this instead of building 
 
 ## Lets Look At Layouts In Next-JS.
 
+So suppose you want a Navbar and a footer every page but since the pages are different in case of nextJS how we do them?
+**For Example:**
 
+```
+<BrowserRouter>
+  <NavBar/>        // will be present in all components.
+  <Route path="/">
+    <Home/>
+  </Route>
+  
+  <Route path="/about">
+    <About/>
+  </Route>
+  <Footer/>
+</BrowserRouter>
+
+```
+
+**In nextJS:**
+
+```
+// The Layout function.
+import Navbar from './navbar'
+import Footer from './footer'
+
+export default function Layout({ children }) {
+  return (
+    <>
+      <Navbar />
+      <main>{children}</main>
+      <Footer />
+    </>
+  )
+}
+```
+
+<p/>
+
+```
+In pages/_app.tsx. The main page which renders everything.
+
+import Layout from '../components/layout'
+
+export default function MyApp({ Component, pageProps }) {
+  return (
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
+  )
+}
+```
+
+You can also do this by doing `.getLayout`:
+
+```
+import Layout from '../components/layout'
+import NestedLayout from '../components/nested-layout'
+
+export default function Page() {
+  return {
+    /** Your content */
+  }
+}
+
+Page.getLayout = (page) => (
+  <Layout>
+    <NestedLayout>{page}</NestedLayout>
+  </Layout>
+)
+
+```
+
+The next blog on nextJS would be authentication, I'm looking forward seeing you all there :). 
