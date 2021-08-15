@@ -54,7 +54,7 @@ We will also get into dynamic routing as we go more in to the blog.
 
 **In pages you should also see api folder** this is for the purpose of backend api calls. we will discuss this in the end. you can also use node & express as you backend instead of nextjs but its good to know it exists. 
 
-**So why does nextJS outgo react?** 
+**So why nextJS over react?** 
 
 Before we get into all this I also want to conclude that Next JS is react as well but with a new set of configured webpack settings so developers don't cry about the `Bundle size` in the production build and the time it takes to load on the page reload.
 
@@ -91,13 +91,9 @@ In this type of generation, the server sends the entire JavaScript to the client
 
 Like the name sounds this is used more with static sites where there isn't a need for building the site again and again. 
 So basically what nextJS does in static site generation is, on build time the static page gets generated into html and js module. So when a user requests for the page, 
-ans its static, the server will blinding just send the html and js since the page is static so it doesn't need to remake the entire page by the help of JavaScript. This can save a lot of speed and time
-since the server doesn't need to remake the site and stuff.
+and its static, the server will blinding just send the html and js. Since the server is sending html, we can see content even before the HTML loads up to the browser.
 
-NextJS has a extra feature to this. You can set a time interval to it, so even thought you page is static, it remakes everything in the interval. 
-
-> Mostly used for blogs and other static pages that are not very interactive and doesn't need real time content load. 
-Can also mix Static and client side rendering.
+> You can mix static and client side render to get the most out of it.
 
 **Life Cycle:**  
 
@@ -111,7 +107,7 @@ Can also mix Static and client side rendering.
 ### Server Side Rendering? 
 
 Server side generation is similar to client side generation but instead the page gets generated on the server and then gets sent to the client.
-This was how web was done before client side rendering. This can be slow sometimes so its better to use Client side generation but it also depends on the situation.
+This was how web was done in PHP. This can be slow sometimes so its better to use static site generation and render the dynamic content on the client side, but it also depends on the situation.
 In this methods. for each page request, the server makes the entire page again and then sends it to the client. This can get really costly at times. 
 
 **Life Cycle:**  
@@ -129,7 +125,7 @@ React can be a perfect example for single page application.
 In the common CRA, you should see a public folder with an index.html file. And by now you should be aware that all the content gets loaded into the `#root` div of index.html.
 So depending on what page you are in, different content gets loaded. 
 
-This can be really bad for SEO since the meta tags would be the same for each page. 
+This can be really bad for SEO since the meta tags wont load till the page is rendered on the client if you are setting any tags. 
 
 But in nextJS, every page has already bundled accordingly. And you have the power to set what meta tags you want to show in what page which can be really good for the SEO.
 
