@@ -5,11 +5,10 @@ interface Props {}
 
 const SideBar: React.FC<Props> = () => {
   return (
-    <div
-      className="w-[5rem]  bg-white  h-screen z-50  pt-32 rounded-tr-md rounded-br-md "
-      style={{ boxShadow: "0px 4px 10px 5px rgba(0, 0, 0, 0.3)" }}
-    >
-      <SidebarOptions />
+    <div className="w-[5rem] relative bg-white shadow-2xl">
+      <div className="absolute translate-x-1/2 pt-[10rem] transform  left-1/2 right-1/2 ">
+        <SidebarOptions />
+      </div>
     </div>
   );
 };

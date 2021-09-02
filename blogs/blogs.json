@@ -1,14 +1,14 @@
 [
   {
-    "id": 4,
-    "url": "/authorization-vs-authentication",
-    "name": "Authorization Vs Authentication"
-  },
-  {
     "id": 3,
     "url": "/next-js",
     "name": "Next JS",
     "language": "JS, Framework on ReactJS"
+  },
+  {
+    "id": 4,
+    "url": "/authorization-vs-authentication",
+    "name": "Authorization Vs Authentication"
   },
   {
     "id": 2,
@@ -16,10 +16,11 @@
     "name": "Event Loop",
     "language": "JS"
   },
+
   {
-    "id": 1,
-    "url": "/array-helper-methods",
-    "name": "Array Helper Methods",
-    "language": "JS"
+    "id": 5,
+    "url": "/typescript-worth-it",
+    "name": "Is TypeScript Worth It?",
+    "language": "TS"
   }
 ]

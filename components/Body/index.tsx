@@ -1,13 +1,27 @@
 import React from "react";
+import { Router } from "next/dist/client/router";
+import { useEffect, useRef } from "react";
 
 interface Props {}
 
-const index: React.FC<Props> = ({ children }) => {
+const Index: React.FC<Props> = ({ children }) => {
+  const contentDiv = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    Router.events.on("routeChangeComplete", () => {
+      if (!contentDiv.current) return;
+      contentDiv.current.scroll({
+        top: 0,
+        left: 0,
+        behavior: "smooth",
+      });
+    });
+  }, []);
+
   return (
-    <div className="h-screen w-screen overflow-y-scroll px-[1rem] sm:px-[2rem] md:px-[3rem] lg:px-[4rem]">
+    <div ref={contentDiv} className="w-full h-screen overflow-x-scroll">
       {children}
     </div>
   );
 };
 
-export default index;
+export default Index;

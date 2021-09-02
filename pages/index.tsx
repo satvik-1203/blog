@@ -11,8 +11,11 @@ export default function Home({
     <div>
       <Head>
         <title>Home</title>
-        <meta name="description" content="Starter page for the blog" />
-        <link rel="icon" href="/favicon.ico" />
+        <meta
+          name="description"
+          content="Place where you can read everything satvik's wants to share :). Thanks for being here"
+        />
+        <link rel="icon" href="/fav.svg" />
       </Head>
       <MainHome topicNames={blogs} />
     </div>
@@ -20,17 +23,6 @@ export default function Home({
 }
 
 export const getStaticProps = async () => {
-  const files = fs.readdirSync("blogs/content", "utf-8");
-
-  // const topicNames: topicName[] = files.map((file, index) => ({
-  //   id: index + 1,
-  //   name: file
-  //     .replace(".mdx", "")
-  //     .split("-")
-  //     .map(word => word[0].toUpperCase() + word.slice(1))
-  //     .join(" "),
-  // }));
-
   return {
     props: { blogs },
   };

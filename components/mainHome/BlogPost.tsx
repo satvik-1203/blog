@@ -7,9 +7,9 @@ interface Props {
 
 const BlogPost: React.FC<Props> = ({ topicName }) => {
   return (
-    <div className="p-4  relative cursor-pointer  h-[11rem] flex flex-col justify-between  transition-all shadow-md hover:shadow-lg transform hover:-translate-y-3 rounded-lg bg-card ">
-      <div className="text-lg font-bold"> {topicName.name}</div>
-      <div className="text-sm font-mono">{topicName.language}</div>
+    <div className="p-4  relative cursor-pointer  h-[10rem] md:h-[11.5rem] lg:h-[13rem] flex flex-col justify-between  transition-all shadow-md hover:shadow-lg transform hover:-rotate-6 rounded-lg bg-card ">
+      <div className="text-base font-bold"> {topicName.name}</div>
+      <div className="text-xs ">{topicName.language}</div>
     </div>
   );
 };

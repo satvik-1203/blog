@@ -11,13 +11,13 @@ interface Props {
 const index: React.FC<Props> = ({ topicNames }) => {
   return (
     <main>
-      <header className="flex justify-center max-w-4xl">
-        <h1 className="h-32 relative   flex-col font-serif flex  justify-center items-start text-3xl tracking-wide sm:text-5xl ">
-          Enjoy the love of code
-          <div className="w-16 h-2 absolute  bottom-5  rounded-full bg-gray-700"></div>
+      <header>
+        <h1 className="font-serif py-[4rem] text-center text-2xl px-5 md:text-3xl lg:text-4xl 2xl:text-6xl">
+          This is a place where I share the world what I find amazing in web
+          development
         </h1>
       </header>
-      <section className="grid mt-[5rem]  gap-y-8 gap-x-8  grid-cols-smCardCol sm:grid-cols-cardCol">
+      <section className=" pb-[5rem] grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-10 px-5">
         {topicNames.map(topicName => (
           <Link key={topicName.id} href={topicName.url || "/"}>
             <a>
@@ -31,4 +31,3 @@ const index: React.FC<Props> = ({ topicNames }) => {
 };
 
 export default index;
-// sm:grid-cols-2
