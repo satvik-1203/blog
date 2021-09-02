@@ -4,6 +4,7 @@ description: simplified version of nextJS documentation
 language: framework on React JS, Next js
 ---
 
+
 <h1> Next-JS Blog Post</h1>
 
 > Giving basic understanding about different types of renders in nextJS and page layouts.
@@ -84,7 +85,6 @@ In this type of generation, the server sends the entire JavaScript to the client
        > The CSS, And the JavaScript is sent. 
               > Takes time to download the JavaScript.
                      > Once the JavaScript is downloaded by the browser, the HTML gets rendered and page is intractable.
-
 ```
 
 ### Static Site Generation? 
@@ -101,7 +101,6 @@ and its static, the server will blinding just send the html and js. Since the se
 > On the build time the page is built
        > When site gets requested the page is sent. The server sends the required JS, CSS and HTML(That is built on build time). 
               > Page is generated right after requested, you might need to wait a tiny about before it gets interactive.
-
 ```
 
 ### Server Side Rendering? 
@@ -143,7 +142,7 @@ The main two functions you should learn for static generation in nextJS are, `ge
 ### What is getStaticProps? 
 
 
-```
+```ts:example.ts
 // pages -> blog.tsx
 // posts will be populated at build time by getStaticProps()
 
@@ -204,7 +203,6 @@ export async function getStaticPaths() {
     revalidate: n secs. // Optional. but it remakes the site once at most per n seconds.
   };
 }
-
 ```
 
 **fallback:**
@@ -283,7 +281,6 @@ It's is amazing to know nextJS has a built in hook for this instead of building 
 
 So suppose you want a Navbar and a footer every page but since the pages are different in case of nextJS how we do them?
 **For Example:**
-
 ```
 <BrowserRouter>
   <NavBar/>        // will be present in all components.
@@ -296,7 +293,6 @@ So suppose you want a Navbar and a footer every page but since the pages are dif
   </Route>
   <Footer/>
 </BrowserRouter>
-
 ```
 
 **In nextJS:**
@@ -350,7 +346,6 @@ Page.getLayout = (page) => (
     <NestedLayout>{page}</NestedLayout>
   </Layout>
 )
-
 ```
 
 The next blog on nextJS would be authentication, I'm looking forward seeing you all there :). 

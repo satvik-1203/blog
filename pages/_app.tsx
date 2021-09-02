@@ -2,8 +2,19 @@ import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import Layout from "../components/Layout";
 import Head from "next/head";
+import { Router } from "next/dist/client/router";
+import { useEffect } from "react";
 
 function MyApp({ Component, pageProps }: AppProps) {
+  useEffect(() => {
+    Router.events.on("routeChangeComplete", () => {
+      window.scroll({
+        top: 0,
+        left: 0,
+        behavior: "smooth",
+      });
+    });
+  }, []);
   return (
     <>
       <Head>
@@ -16,16 +27,3 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 }
 export default MyApp;
-
-// import { Router } from "next/dist/client/router";
-// import { useEffect, useRef } from "react";
-// useEffect(() => {
-//   Router.events.on("routeChangeComplete", () => {
-//     if (!contentDiv.current) return;
-//     contentDiv.current.scroll({
-//       top: 0,
-//       left: 0,
-//       behavior: "smooth",
-//     });
-//   });
-// }, []);
