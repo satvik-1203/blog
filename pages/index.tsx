@@ -15,7 +15,7 @@ export default function Home({
           name="description"
           content="Place where you can read everything satvik's wants to share :). Thanks for being here"
         />
-        <link rel="icon" href="/fav.svg" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <MainHome topicNames={blogs} />
     </div>
