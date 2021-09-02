@@ -9,7 +9,7 @@ const index: React.FC<Props> = ({ data, content }) => {
   return (
     <>
       <div
-        className={` mt-16 focus:outline-none  py-10 px-5 sm:px-10 sm:w-3/4  `}
+        className={` mt-16 mx-auto focus:outline-none  py-10 px-5 sm:px-10 sm:w-3/4  `}
         dangerouslySetInnerHTML={{ __html: content }}
       ></div>
       <style jsx global>{`

@@ -4,7 +4,7 @@ import Body from "./Body";
 
 const Layout: React.FC = ({ children }) => {
   return (
-    <div className="h-screen flex   bg-lightWhite">
+    <div className="h-screen ">
       <SideBar />
       <Body>{children}</Body>
     </div>

@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const SidebarOptions = () => {
   return (
-    <div className="flex justify-center ">
+    <div className="w-[4rem] flex justify-center">
       {options.map(option => (
         <Link key={option.id} href={option.path}>
           <a>

@@ -9,3 +9,6 @@ html {
   scroll-behavior: smooth;
   scrollbar-width: thin;
 }
+body {
+  background-color: #e1e1e1;
+}

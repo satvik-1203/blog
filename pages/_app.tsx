@@ -16,3 +16,16 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 }
 export default MyApp;
+
+// import { Router } from "next/dist/client/router";
+// import { useEffect, useRef } from "react";
+// useEffect(() => {
+//   Router.events.on("routeChangeComplete", () => {
+//     if (!contentDiv.current) return;
+//     contentDiv.current.scroll({
+//       top: 0,
+//       left: 0,
+//       behavior: "smooth",
+//     });
+//   });
+// }, []);
