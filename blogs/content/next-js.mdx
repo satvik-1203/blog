@@ -4,6 +4,7 @@ description: simplified version of nextJS documentation
 language: framework on React JS, Next js
 ---
 
+
 <h1> Next-JS Blog Post</h1>
 
 > Giving basic understanding about different types of renders in nextJS and page layouts.
@@ -35,7 +36,7 @@ Now let's look at what each folder does.
 **pages** This is where next js shines itself. In the pages folder, each of the file is given with its specific route. 
 `Each file must have a default export so that component gets loaded on the url` 
 Example: 
-```
+```textile
 pages -|
        |-> about.tsx .
 ```
@@ -44,7 +45,7 @@ Note: All files in pages are preferred to be lowercase, especially index.tsx. Si
 
 *How do we do dynamic routing in nextJS?* 
 example : domain/about/:pid. Its actually fairly simple in next js. 
-```
+```textile
  pages -> about -|
                  |-> index.tsx (main page), 
                  |-> [pid].tsx(dynamic routing) 
@@ -79,12 +80,11 @@ In this type of generation, the server sends the entire JavaScript to the client
 
 **Life Cycle:**  
 
-```
+```textile
  > User Request for the page. 
        > The CSS, And the JavaScript is sent. 
               > Takes time to download the JavaScript.
                      > Once the JavaScript is downloaded by the browser, the HTML gets rendered and page is intractable.
-
 ```
 
 ### Static Site Generation? 
@@ -97,11 +97,10 @@ and its static, the server will blinding just send the html and js. Since the se
 
 **Life Cycle:**  
 
-```
+```textile
 > On the build time the page is built
        > When site gets requested the page is sent. The server sends the required JS, CSS and HTML(That is built on build time). 
               > Page is generated right after requested, you might need to wait a tiny about before it gets interactive.
-
 ```
 
 ### Server Side Rendering? 
@@ -112,7 +111,7 @@ In this methods. for each page request, the server makes the entire page again a
 
 **Life Cycle:**  
 
-```
+```textile
 > User Request for the page. 
        > The content is built on the server on request.
               > Sends the CSS, JavaScript, and HTML. 
@@ -143,7 +142,7 @@ The main two functions you should learn for static generation in nextJS are, `ge
 ### What is getStaticProps? 
 
 
-```
+```JS:example.ts
 // pages -> blog.tsx
 // posts will be populated at build time by getStaticProps()
 
@@ -193,7 +192,7 @@ content has some useful properties: <br/>
 
 In this function we can predefine that following paths we want to predefine on build-time itself, lets look at an example.
 
-```
+```js:example.js
 export async function getStaticPaths() {
   return {
     paths: [
@@ -204,7 +203,6 @@ export async function getStaticPaths() {
     revalidate: n secs. // Optional. but it remakes the site once at most per n seconds.
   };
 }
-
 ```
 
 **fallback:**
@@ -222,7 +220,7 @@ And in nextJS folders structure and stuff changes in build time so its recommend
 
 <p/>
 
-```
+```js:example.js
 function Page({ data }) {
   // Render data...
 }
@@ -264,7 +262,7 @@ So in nextJS, we can load a static page while the browser is downloading the JS 
 
 For this support nextJS has an amazing built in hook for data fetching on the client side.
 
-```
+```js:example.js
 import useSWR from 'swr'
 
 const fetcher = (url) => fetch(url).then((res) => res.json())
@@ -283,8 +281,7 @@ It's is amazing to know nextJS has a built in hook for this instead of building 
 
 So suppose you want a Navbar and a footer every page but since the pages are different in case of nextJS how we do them?
 **For Example:**
-
-```
+```jsx:example.js
 <BrowserRouter>
   <NavBar/>        // will be present in all components.
   <Route path="/">
@@ -296,12 +293,11 @@ So suppose you want a Navbar and a footer every page but since the pages are dif
   </Route>
   <Footer/>
 </BrowserRouter>
-
 ```
 
 **In nextJS:**
 
-```
+```js:example.js
 // The Layout function.
 import Navbar from './navbar'
 import Footer from './footer'
@@ -319,8 +315,8 @@ export default function Layout({ children }) {
 
 <p/>
 
-```
-In pages/_app.tsx. The main page which renders everything.
+```js:example.js
+In pages/_app.jsx. The main page which renders everything.
 
 import Layout from '../components/layout'
 
@@ -335,7 +331,7 @@ export default function MyApp({ Component, pageProps }) {
 
 You can also do this by doing `.getLayout`:
 
-```
+```js:example.js
 import Layout from '../components/layout'
 import NestedLayout from '../components/nested-layout'
 
@@ -350,7 +346,6 @@ Page.getLayout = (page) => (
     <NestedLayout>{page}</NestedLayout>
   </Layout>
 )
-
 ```
 
 The next blog on nextJS would be authentication, I'm looking forward seeing you all there :). 
