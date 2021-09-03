@@ -1,11 +1,16 @@
+// styles
+
 import "../styles/globals.css";
 import "prismjs/themes/prism-tomorrow.css";
 import "prismjs/plugins/unescaped-markup/prism-unescaped-markup.min.js";
 
+// Next imports
 import type { AppProps } from "next/app";
 import Layout from "../components/Layout";
 import Head from "next/head";
 import { Router } from "next/dist/client/router";
+
+// Imports
 import { useEffect } from "react";
 
 function MyApp({ Component, pageProps }: AppProps) {

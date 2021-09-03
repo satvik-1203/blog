@@ -1,6 +1,5 @@
 import Head from "next/head";
 import { InferGetStaticPropsType } from "next";
-
 import blogs from "../blogs/blogs.json";
 import MainHome from "@Components/mainHome/index";
 

@@ -2,14 +2,16 @@ import React, { useEffect } from "react";
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import fs from "fs";
 import { ParsedUrlQuery } from "querystring";
-import matter from "gray-matter";
 import Head from "next/head";
+
+// @ts-ignore
+// Related to MD
+import remarkCodeTitle from "remark-code-titles";
 import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote } from "next-mdx-remote";
 import Prism from "prismjs";
-
-// @ts-ignore
-import remarkCodeTitle from "remark-code-titles";
+import matter from "gray-matter";
+import remarkImg from "remark-unwrap-images";
 
 const Index = ({
   content,
@@ -54,7 +56,7 @@ export const getStaticProps: GetStaticProps = async context => {
 
   const html = await serialize(content, {
     mdxOptions: {
-      remarkPlugins: [remarkCodeTitle],
+      remarkPlugins: [remarkCodeTitle, remarkImg],
     },
   });
   return {
