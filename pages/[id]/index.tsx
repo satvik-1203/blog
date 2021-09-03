@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import fs from "fs";
 import { ParsedUrlQuery } from "querystring";
@@ -6,18 +6,19 @@ import matter from "gray-matter";
 import Head from "next/head";
 import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote } from "next-mdx-remote";
+import Prism from "prismjs";
 
 // @ts-ignore
 import remarkCodeTitle from "remark-code-titles";
 
-//@ts-ignore
-// import rehypePrism from "@mapbox/rehype-prism";
-
-const index = ({
+const Index = ({
   content,
   data,
   html,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  useEffect(() => {
+    Prism.highlightAll();
+  }, []);
   return (
     <>
       <Head>
@@ -62,4 +63,4 @@ export const getStaticProps: GetStaticProps = async context => {
   };
 };
 
-export default index;
+export default Index;

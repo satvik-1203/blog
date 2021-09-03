@@ -1,4 +1,7 @@
 import "../styles/globals.css";
+import "prismjs/themes/prism-tomorrow.css";
+import "prismjs/plugins/unescaped-markup/prism-unescaped-markup.min.js";
+
 import type { AppProps } from "next/app";
 import Layout from "../components/Layout";
 import Head from "next/head";
