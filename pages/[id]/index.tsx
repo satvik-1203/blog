@@ -54,7 +54,6 @@ export const getStaticProps: GetStaticProps = async context => {
 
   const html = await serialize(content, {
     mdxOptions: {
-      rehypePlugins: [],
       remarkPlugins: [remarkCodeTitle],
     },
   });
