@@ -17,8 +17,8 @@ const index: React.FC<Props> = ({ topicNames }) => {
         </h1>
       </header>
       <section className="  grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-10 px-5 md:px-8 lg:px-12">
-        {topicNames.map(topicName => (
-          <Link key={topicName.id} href={topicName.url || "/"}>
+        {topicNames.map((topicName, index) => (
+          <Link key={index} href={topicName.url || "/"}>
             <a>
               <BlogPost topicName={topicName} />
             </a>
