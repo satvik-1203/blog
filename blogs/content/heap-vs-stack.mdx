@@ -16,11 +16,11 @@ the language will assign the variable in the stack memory.
 
 When data is stored in the stack memory, the variables that refer to it have direct access to them.
 
-```text
+```JS
 var x = 10;
 
-In the call stack the rough representation would be
-    x = 10;
+// In the call stack the rough representation would be
+x = 10;
 ```
 
 But the idea of Heap Memory is different.
@@ -31,19 +31,19 @@ When variables don't have defined size at compile time, that data is stored in h
 
 Suppose we initialize a new array to x. This is how the compiler would allocate memory. since array doesn't have fixed size at compile time.
 
-```TEXT
+```JS
 var x =  xf013114;
 
 var y = x;
 
-// y =  xf013114;
+y =  xf013114;
 // y would hold the value xf013114 and hence editing y would also result in editing x cuz they hold same memory reference location.
 
-In the call stack the rough representation would be
-    x = xf013114;
+// In the call stack the rough representation would be
+x = xf013114;
 
-In the Heap memory the rough representation would be
-    xf013114 = []; 
+// In the Heap memory the rough representation would be
+xf013114 = []; 
         
 ```
 
